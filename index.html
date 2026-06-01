@@ -311,8 +311,8 @@ html,body{width:100%;height:100%;background:var(--ink);color:var(--white);
          onerror="this.src='https://placecats.com/neo/300/240'"
          alt="My favourite cat">
     <div id="twBox"><span id="twText"></span><span id="caret"></span></div>
-    <!-- ↓ Replace FORMSPREE_ID with your real ID from formspree.io -->
-    <form id="qaForm" action="https://formspree.io/f/FORMSPREE_ID" method="POST">
+    <!-- ↓ Form ohne externe API -->
+    <form id="qaForm">
       <h3>✦ A few questions for you ✦</h3>
       <div class="qb">
         <label for="q1">How excited are you for your gift? 🎁</label>
@@ -332,8 +332,6 @@ html,body{width:100%;height:100%;background:var(--ink);color:var(--white);
         <label for="q3">Leave me a little message 💌</label>
         <textarea id="q3" name="message" placeholder="Write me something sweet…"></textarea>
       </div>
-      <input type="text" name="_gotcha" style="display:none">
-      <input type="hidden" name="_next" value="about:blank">
       <button type="submit" class="btn-send">Send it ✦</button>
     </form>
   </div>
@@ -541,11 +539,8 @@ function typewrite(text,el,done){
 }
 
 /* ── FORM SUBMIT → V3 ── */
-document.getElementById('qaForm').addEventListener('submit',async e=>{
+document.getElementById('qaForm').addEventListener('submit',e=>{
   e.preventDefault();
-  try{
-    await fetch(e.target.action,{method:'POST',body:new FormData(e.target),headers:{Accept:'application/json'}});
-  }catch(_){}
   showView('v3');
   startV3();
 });
