@@ -654,6 +654,25 @@
         opacity: 0
       }
     }
+
+    /* ── credit link ── */
+    .credit-link {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 99997;
+      font-size: .9rem;
+      color: rgba(245, 240, 255, .7);
+      text-decoration: none;
+      letter-spacing: .04em;
+      pointer-events: auto
+    }
+
+    .credit-link:hover,
+    .credit-link:focus {
+      color: var(--moon);
+      text-decoration: underline
+    }
   </style>
 </head>
 
@@ -662,6 +681,8 @@
   <canvas id="starCanvas"></canvas>
   <div id="cur"></div>
   <div id="cur2"></div>
+  <a class="credit-link" href="https://github.com/aallanazar" target="_blank" rel="noopener noreferrer"
+    aria-label="GitHub profile for aallanazar">aallanazar</a>
 
   <!-- ══ VIEW 1 ══ -->
   <div id="v1" class="view active">
