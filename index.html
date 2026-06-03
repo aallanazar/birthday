@@ -175,25 +175,31 @@
         <svg width="220" height="240" viewBox="0 0 220 240" xmlns="http://www.w3.org/2000/svg">
           <path class="stem-line" d="M110 230 C110 200 100 170 110 140" stroke="#72f7b0" stroke-width="4" fill="none" stroke-linecap="round"/>
           <path class="leaf-path" d="M110 182 C80 168 62 142 86 130 C98 154 106 170 110 182Z" fill="#72f7b0"/>
-          <g transform="translate(110,108)">
-            <ellipse class="petal" style="--r:0deg;  animation-delay:.5s"  cx="0" cy="-44" rx="13" ry="26" fill="#ff8db8" opacity=".92"/>
-            <ellipse class="petal" style="--r:36deg; animation-delay:.62s" cx="0" cy="-44" rx="13" ry="26" fill="#c9a5f7" opacity=".88"/>
-            <ellipse class="petal" style="--r:72deg; animation-delay:.74s" cx="0" cy="-44" rx="13" ry="26" fill="#ff8db8" opacity=".92"/>
-            <ellipse class="petal" style="--r:108deg;animation-delay:.86s" cx="0" cy="-44" rx="13" ry="26" fill="#ffe9a0" opacity=".85"/>
-            <ellipse class="petal" style="--r:144deg;animation-delay:.98s" cx="0" cy="-44" rx="13" ry="26" fill="#ff8db8" opacity=".92"/>
-            <ellipse class="petal" style="--r:180deg;animation-delay:1.1s" cx="0" cy="-44" rx="13" ry="26" fill="#c9a5f7" opacity=".88"/>
-            <ellipse class="petal" style="--r:216deg;animation-delay:1.22s" cx="0" cy="-44" rx="13" ry="26" fill="#ff8db8" opacity=".92"/>
-            <ellipse class="petal" style="--r:252deg;animation-delay:1.34s" cx="0" cy="-44" rx="13" ry="26" fill="#ffe9a0" opacity=".85"/>
-            <ellipse class="petal" style="--r:288deg;animation-delay:1.46s" cx="0" cy="-44" rx="13" ry="26" fill="#ff8db8" opacity=".92"/>
-            <ellipse class="petal" style="--r:324deg;animation-delay:1.58s" cx="0" cy="-44" rx="13" ry="26" fill="#c9a5f7" opacity=".88"/>
-            <circle cx="0" cy="0" r="24" fill="#ffe9a0"/>
-            <circle cx="0" cy="0" r="16" fill="#ff8db8" opacity=".8"/>
-            <circle cx="0" cy="0" r="8" fill="#ffe9a0"/>
-            <circle cx="0" cy="0" r="30" fill="none" stroke="#ffe9a0" stroke-width="1" opacity=".4"/>
+          <g transform="translate(110,135)">
+            <!-- Outer -->
+            <path class="petal" style="--r:0deg; animation-delay:0.5s; transform-origin:0px 0px;" d="M 0 0 C -30 -10 -40 -40 0 -50 C 40 -40 30 -10 0 0" fill="#ffd700" opacity="0.9"/>
+            <path class="petal" style="--r:72deg; animation-delay:0.6s; transform-origin:0px 0px;" d="M 0 0 C -30 -10 -40 -40 0 -50 C 40 -40 30 -10 0 0" fill="#ffc100" opacity="0.9"/>
+            <path class="petal" style="--r:144deg; animation-delay:0.7s; transform-origin:0px 0px;" d="M 0 0 C -30 -10 -40 -40 0 -50 C 40 -40 30 -10 0 0" fill="#ffd700" opacity="0.9"/>
+            <path class="petal" style="--r:216deg; animation-delay:0.8s; transform-origin:0px 0px;" d="M 0 0 C -30 -10 -40 -40 0 -50 C 40 -40 30 -10 0 0" fill="#ffc100" opacity="0.9"/>
+            <path class="petal" style="--r:288deg; animation-delay:0.9s; transform-origin:0px 0px;" d="M 0 0 C -30 -10 -40 -40 0 -50 C 40 -40 30 -10 0 0" fill="#ffd700" opacity="0.9"/>
+            
+            <!-- Mid -->
+            <path class="petal" style="--r:36deg; animation-delay:1.0s; transform-origin:0px 0px;" d="M 0 0 C -20 -5 -30 -25 0 -35 C 30 -25 20 -5 0 0" fill="#ffb300" opacity="0.95"/>
+            <path class="petal" style="--r:108deg; animation-delay:1.1s; transform-origin:0px 0px;" d="M 0 0 C -20 -5 -30 -25 0 -35 C 30 -25 20 -5 0 0" fill="#ff9900" opacity="0.95"/>
+            <path class="petal" style="--r:180deg; animation-delay:1.2s; transform-origin:0px 0px;" d="M 0 0 C -20 -5 -30 -25 0 -35 C 30 -25 20 -5 0 0" fill="#ffb300" opacity="0.95"/>
+            <path class="petal" style="--r:252deg; animation-delay:1.3s; transform-origin:0px 0px;" d="M 0 0 C -20 -5 -30 -25 0 -35 C 30 -25 20 -5 0 0" fill="#ff9900" opacity="0.95"/>
+            <path class="petal" style="--r:324deg; animation-delay:1.4s; transform-origin:0px 0px;" d="M 0 0 C -20 -5 -30 -25 0 -35 C 30 -25 20 -5 0 0" fill="#ffb300" opacity="0.95"/>
+
+            <!-- Inner -->
+            <path class="petal" style="--r:0deg; animation-delay:1.5s; transform-origin:0px 0px;" d="M 0 0 C -10 -5 -15 -15 0 -20 C 15 -15 10 -5 0 0" fill="#ff8800" opacity="0.95"/>
+            <path class="petal" style="--r:120deg; animation-delay:1.6s; transform-origin:0px 0px;" d="M 0 0 C -10 -5 -15 -15 0 -20 C 15 -15 10 -5 0 0" fill="#e67300" opacity="0.95"/>
+            <path class="petal" style="--r:240deg; animation-delay:1.7s; transform-origin:0px 0px;" d="M 0 0 C -10 -5 -15 -15 0 -20 C 15 -15 10 -5 0 0" fill="#ff8800" opacity="0.95"/>
+            
+            <circle class="petal" style="--r:0deg; animation-delay:1.8s; transform-origin:0px 0px;" cx="0" cy="0" r="6" fill="#cc6600"/>
           </g>
         </svg>
       </div>
-      <h2>Schön, dass es dich gibt! 🎂</h2>
+      <h2>Schön, dass du hier gekommen bist! 🎂</h2>
       <p>Genieße deinen Tag in vollen Zügen!</p>
       <div style="display:none;" id="v5name"></div>
 
