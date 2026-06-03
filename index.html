@@ -43,7 +43,7 @@
     .paw-trail{position:absolute;top:calc(50% + 42px);left:0;display:flex;gap:clamp(18px,4vw,36px);animation:none;white-space:nowrap}
     @keyframes pawRun{0%{left:-30%}100%{left:120%}}
     .trans-label{position:absolute;bottom:22%;width:100%;text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.1rem,3vw,1.8rem);color:var(--glow);opacity:0;transition:opacity 1.2s}
-    #v2,#v3{background:radial-gradient(ellipse 100% 80% at 20% 80%,#0f1f35 0%,var(--ink) 70%);overflow-y:auto;align-items:center;padding:3rem 1.2rem 4rem}
+    #v2,#v4{background:radial-gradient(ellipse 100% 80% at 20% 80%,#0f1f35 0%,var(--ink) 70%);overflow-y:auto;align-items:center;padding:3rem 1.2rem 4rem}
     .v2-inner{max-width:640px;width:100%;display:flex;flex-direction:column;align-items:center;gap:2rem}
     #ghostCat{width:clamp(140px,38vw,220px);border-radius:24px;box-shadow:0 0 60px rgba(201,165,247,.3),0 0 120px rgba(201,165,247,.12);opacity:1;transition:opacity 2.5s ease;object-fit:cover;border:1px solid rgba(201,165,247,.2)}
     #twBox{display:none;font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2.8vw,1.4rem);font-weight:300;line-height:1.9;color:var(--white);text-align:center;max-width:560px;white-space:pre-wrap}
@@ -54,10 +54,10 @@
     .btn-restart:hover{background:rgba(201,165,247,0.15);transform:scale(1.05);box-shadow:0 0 40px rgba(201,165,247,0.3)}
     #btnContinue{padding:1rem 2rem;border:1px solid rgba(201,165,247,.4);border-radius:50px;background:rgba(201,165,247,.08);color:var(--glow);font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:500;letter-spacing:.06em;cursor:none;margin-top:1.5rem;display:none;transition:all .2s;box-shadow:0 0 30px rgba(201,165,247,.2)}
     #btnContinue:hover{background:rgba(201,165,247,.15);transform:scale(1.05);box-shadow:0 0 50px rgba(201,165,247,.4)}
-    #v3,#v4{background:radial-gradient(ellipse 100% 100% at 50% 50%,#130929 0%,var(--ink) 80%);overflow:hidden}
+    #v3,#v5{background:radial-gradient(ellipse 100% 100% at 50% 50%,#130929 0%,var(--ink) 80%);overflow:hidden}
     .cp{position:absolute;top:-16px;border-radius:2px;animation:cpFall linear infinite;pointer-events:none}
     @keyframes cpFall{0%{transform:translateY(0) rotate(0) scale(1);opacity:.9}100%{transform:translateY(110vh) rotate(900deg) scale(.4);opacity:0}}
-    .v3-inner,.v4-inner{z-index:2;text-align:center;padding:2rem 1.5rem;display:flex;flex-direction:column;align-items:center;gap:1.6rem;opacity:0;animation:fadeUp 1s .3s forwards}
+    .v3-inner,.v5-inner{z-index:2;text-align:center;padding:2rem 1.5rem;display:flex;flex-direction:column;align-items:center;gap:1.6rem;opacity:0;animation:fadeUp 1s .3s forwards}
     .v3-inner h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,7vw,3.8rem);font-weight:600;color:var(--white)}
     .v3-inner h2 span{color:var(--glow);font-style:italic}
     .v3-inner p{font-size:clamp(.9rem,2.2vw,1.1rem);font-weight:300;color:rgba(245,240,255,.65);max-width:440px;line-height:1.8}
@@ -89,7 +89,7 @@
       .view{position:static;opacity:1 !important;pointer-events:auto}
       #v1,#v2,#v3{display:none}
       #v4,#v5{overflow:visible}
-      .btn-restart,.btn-yes2,.btn-no2,.btn-github,#btnContinue,#btnRestart,#btnPrint,#btnPrintBook{display:none !important}
+      .btn-restart,.btn-yes2,.btn-no2,.btn-github,#btnContinue,#btnRestart,#btnPrint,#btnExitBook,#btnNoBook{display:none !important}
       img{box-shadow:none;border-radius:0}
       .v5-inner{color:#000;background:transparent}
     }
@@ -158,9 +158,25 @@
     </div>
   </div>
 
-  <!-- VIEW 4 - FINAL -->
+  <!-- VIEW 4 - BOOK DETAILS -->
   <div id="v4" class="view">
-    <div class="v3-inner">
+    <div class="v2-inner">
+      <h2 class="question-title">Das Buch</h2>
+      <img src="book.jpg" alt="Buchtitel: Баxтийёр оила" style="max-width:360px;border-radius:12px;box-shadow:0 0 40px rgba(0,0,0,.6);margin-bottom:1rem" onerror="this.src='https://placehold.co/360x480?text=book+image'">
+      <p style="max-width:640px;text-align:center;color:rgba(245,240,255,.8);line-height:1.7;margin-bottom:1rem">
+        Hier ist das Buch, das ich vorgeschlagen habe. Wenn du möchtest, können wir es gemeinsam lesen und anschließend besprechen, ob wir uns eine gemeinsame Zukunft vorstellen können.
+      </p>
+      <div style="display:flex;gap:12px;"> 
+        <button id="btnReadTogether" class="btn-yes2">Ja</button>
+        <button id="btnNoBook" class="btn-no2">Nein</button>
+        <button id="btnExitBook" class="btn-restart" style="margin-left:8px">Beenden / Drucken 🖨️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIEW 5 - FINAL -->
+  <div id="v5" class="view">
+    <div class="v5-inner">
       <div class="flower-stage">
         <svg width="220" height="240" viewBox="0 0 220 240" xmlns="http://www.w3.org/2000/svg">
           <path class="stem-line" d="M110 230 C110 200 100 170 110 140" stroke="#72f7b0" stroke-width="4" fill="none" stroke-linecap="round"/>
@@ -185,7 +201,7 @@
       </div>
       <h2>Schön, dass es dich gibt! 🎂</h2>
       <p>Genieße deinen Tag in vollen Zügen!</p>
-      <div style="display:none;" id="v4name"></div>
+      <div style="display:none;" id="v5name"></div>
 
       <!-- GitHub link -->
       <a href="https://github.com/aallanazar" target="_blank" class="btn-github" id="btnGithub">
@@ -196,25 +212,8 @@
       </a>
 
       <button id="btnRestart" class="btn-restart">Nochmal von vorn ✨</button>
-      <button id="btnBook" class="btn-restart" style="margin-left:8px">Zum Buch 📖</button>
       <button id="btnPrint" class="btn-restart" style="margin-left:8px">Beenden / Drucken 🖨️</button>
       <div class="emoji-row">🎈 ✨ 🌸</div>
-    </div>
-  </div>
-
-  <!-- VIEW 5 - BOOK DETAILS -->
-  <div id="v5" class="view">
-    <div class="v2-inner">
-      <h2 class="question-title">Das Buch</h2>
-      <img src="book.jpg" alt="Buchtitel: Баxтийёр оила" style="max-width:360px;border-radius:12px;box-shadow:0 0 40px rgba(0,0,0,.6);margin-bottom:1rem" onerror="this.src='https://placehold.co/360x480?text=book+image'">
-      <p style="max-width:640px;text-align:center;color:rgba(245,240,255,.8);line-height:1.7;margin-bottom:1rem">
-        Hier ist das Buch, das ich vorgeschlagen habe. Wenn du möchtest, können wir es gemeinsam lesen und anschließend besprechen, ob wir uns eine gemeinsame Zukunft vorstellen können.
-      </p>
-      <div style="display:flex;gap:12px;"> 
-        <button id="btnReadTogether" class="btn-yes2">Ja, ich lese das Buch</button>
-        <button id="btnBackFromBook" class="btn-no2">Zurück</button>
-        <button id="btnPrintBook" class="btn-restart" style="margin-left:8px">Beenden / Drucken 🖨️</button>
-      </div>
     </div>
   </div>
 
@@ -338,7 +337,7 @@
       },2800);
     }
 
-    document.getElementById('btnContinue').addEventListener('click',()=>{ showView('v4'); startV4(); });
+    document.getElementById('btnContinue').addEventListener('click',()=>{ showView('v4'); });
 
     function typewrite(text,el,done){
       let i=0;
@@ -350,21 +349,17 @@
       showView('v1');
     });
 
-    // Book button from v4
-    const btnBook = document.getElementById('btnBook');
-    if(btnBook){ btnBook.addEventListener('click',()=>{ showView('v5'); }); }
-
-    const btnBackFromBook = document.getElementById('btnBackFromBook');
-    if(btnBackFromBook){ btnBackFromBook.addEventListener('click',()=>{ showView('v4'); }); }
-
     const btnReadTogether = document.getElementById('btnReadTogether');
-    if(btnReadTogether){ btnReadTogether.addEventListener('click',()=>{ showView('v4'); }); }
+    if(btnReadTogether){ btnReadTogether.addEventListener('click',()=>{ showView('v5'); startV5(); }); }
+
+    const btnNoBook = document.getElementById('btnNoBook');
+    if(btnNoBook){ btnNoBook.addEventListener('click',()=>{ window.print(); }); }
+
+    const btnExitBook = document.getElementById('btnExitBook');
+    if(btnExitBook){ btnExitBook.addEventListener('click',()=>{ window.print(); }); }
 
     const btnPrint = document.getElementById('btnPrint');
     if(btnPrint){ btnPrint.addEventListener('click',()=>{ window.print(); }); }
-
-    const btnPrintBook = document.getElementById('btnPrintBook');
-    if(btnPrintBook){ btnPrintBook.addEventListener('click',()=>{ window.print(); }); }
 
     // GitHub button: open link (cursor is none, so use click not hover)
     document.getElementById('btnGithub').addEventListener('click', e => {
@@ -372,24 +367,24 @@
       window.open('https://github.com/aallanazar','_blank','noopener');
     });
 
-    function startV4(){
-      const nameEl=document.getElementById('v4name');
+    function startV5(){
+      const nameEl=document.getElementById('v5name');
       if(nameEl&&window._bdName) nameEl.textContent=window._bdName;
-      const v4=document.getElementById('v4');
-      if(v4){
-        v4.querySelectorAll('.cp').forEach(c=>c.remove());
+      const v5=document.getElementById('v5');
+      if(v5){
+        v5.querySelectorAll('.cp').forEach(c=>c.remove());
         const colors=['#c9a5f7','#ff8db8','#ffe9a0','#72f7b0','#a8c4ff','#fff'];
         for(let i=0;i<70;i++){
           const el=document.createElement('div'); el.className='cp';
           const sz=Math.random()*9+5;
           el.style.cssText=`left:${Math.random()*100}vw;width:${sz}px;height:${sz+4}px;background:${colors[Math.floor(Math.random()*colors.length)]};animation-duration:${2.5+Math.random()*4}s;animation-delay:${Math.random()*5}s;border-radius:${Math.random()>.5?'50%':'3px'}`;
-          v4.insertBefore(el,v4.firstChild);
+          v5.insertBefore(el,v5.firstChild);
         }
         for(let i=0;i<16;i++){
           const ff=document.createElement('div'); ff.className='ff';
           const sz=Math.random()*4+2;
           ff.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--dx:${(Math.random()-.5)*60}px;--dy:${(Math.random()-.5)*60}px;animation-duration:${3+Math.random()*5}s,${2+Math.random()*4}s;animation-delay:${Math.random()*4}s,${Math.random()*3}s;box-shadow:0 0 8px var(--leaf);position:absolute`;
-          v4.appendChild(ff);
+          v5.appendChild(ff);
         }
       }
     }
