@@ -94,7 +94,7 @@
       body,html{background:#fff;color:#000;cursor:auto;}
       canvas,#cur,#cur2,.bota,.ff,.cp,.sparkle{display:none !important}
       .view{position:static;opacity:1 !important;pointer-events:auto}
-      #v1,#v3{display:none}
+      #v1,#v2,#v3{display:none}
       #v4,#v5{overflow:visible}
       .btn-restart,.btn-yes2,.btn-no2,#btnContinue,#btnRestart{display:none !important}
       img{box-shadow:none;border-radius:0}
@@ -132,6 +132,17 @@
     </div>
   </div>
 
+
+  <!-- VIEW 2 - QUESTION -->
+  <div id="v2" class="view">
+    <div class="v2-inner">
+      <h2 class="question-title">Möchtest du etwas von mir hören?</h2>
+      <div class="btn-container">
+        <button id="btnYes2" class="btn-yes2">Yes! 🎉</button>
+        <button id="btnNo2" class="btn-no2">No</button>
+      </div>
+    </div>
+  </div>
 
   <!-- TRANSITION -->
   <div id="trans" class="view">
@@ -232,7 +243,24 @@
       document.getElementById(id).classList.add('active');
     }
 
-    document.getElementById('btnYes').addEventListener('click',()=>{
+    const btnNo2=document.getElementById('btnNo2');
+    function fleeNo2(e){
+      btnNo2.style.position='fixed';
+      const bw=btnNo2.offsetWidth||120, bh=btnNo2.offsetHeight||44, m=40;
+      const nx=Math.random()*(window.innerWidth-bw-m)+m;
+      const ny=Math.random()*(window.innerHeight-bh-m)+m;
+      btnNo2.style.left=nx+'px'; btnNo2.style.top=ny+'px'; btnNo2.style.transform='none';
+      if(e) e.preventDefault();
+    }
+    if(btnNo2){
+      btnNo2.addEventListener('mouseenter',fleeNo2);
+      btnNo2.addEventListener('touchstart',fleeNo2,{passive:false});
+      btnNo2.addEventListener('click',e=>{e.preventDefault();fleeNo2(e);});
+    }
+
+    document.getElementById('btnYes').addEventListener('click',()=>{ showView('v2'); });
+
+    document.getElementById('btnYes2').addEventListener('click',()=>{
       window._bdName='aallanazar';
       window._bdText=`Im Laufe der Geschichte wurden als Geschenk Burgen gebaut oder prachtvolle Gärten angelegt – jeder schenkte das, wozu er in der Lage war.\n\nIch habe dir hier etwas mitgebracht, das meinen momentanen Möglichkeiten entspricht. Ich wünsche dir von Herzen alles Gute zum Geburtstag, viel Glück im Leben und großen beruflichen Erfolg.\n\nIch möchte dir zudem einen Vorschlag machen: ein Buch. Ein sehr bekanntes Buch, das Männer und Frauen vor einer möglichen Heirat gelesen haben sollten. Unser erster Versuch, uns näher kennenzulernen, war leider nicht so erfolgreich, wie erhofft.\n\nIch schlage vor, dass wir nun beide dieses Buch lesen und am Ende gemeinsam die Entscheidung treffen, ob wir eine gemeinsame Zukunft haben können.\n\nAlles Gute und einen wunderschönen Tag!`;
       showView('trans');
@@ -295,6 +323,7 @@
     }
 
     document.getElementById('btnRestart').addEventListener('click',()=>{
+      if(btnNo2){ btnNo2.style.position='relative'; btnNo2.style.left='auto'; btnNo2.style.top='auto'; btnNo2.style.transform='none'; }
       showView('v1');
     });
 
