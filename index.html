@@ -138,7 +138,7 @@
   <div id="v3" class="view">
     <div class="v2-inner">
       <h2 class="v3-title" style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,8vw,3.6rem);font-weight:600;margin-bottom:1rem;background:linear-gradient(45deg,#ff79c6,#bd93f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-align:center;">
-        Ich wusste es! ❤️</h2>
+        Ich wusste es! </h2>
       <img id="ghostCat" src="katze-neu.jpg" onerror="this.src='https://placecats.com/neo/300/240'" alt="My favourite cat">
       <div id="twBox"><span id="twText"></span><span id="caret"></span></div>
       <button id="btnContinue">Weiter &rarr;</button>
@@ -183,7 +183,23 @@
       </a>
 
       <button id="btnRestart" class="btn-restart">Nochmal von vorn ✨</button>
-      <div class="emoji-row">🎂 🎈 ✨ 🌸 🎁</div>
+      <button id="btnBook" class="btn-restart" style="margin-left:8px">Zum Buch 📖</button>
+      <div class="emoji-row">🎈 ✨ 🌸</div>
+    </div>
+  </div>
+
+  <!-- VIEW 5 - BOOK DETAILS -->
+  <div id="v5" class="view">
+    <div class="v2-inner">
+      <h2 class="question-title">Das Buch</h2>
+      <img src="book.jpg" alt="Buchtitel: Баxтийёр оила" style="max-width:360px;border-radius:12px;box-shadow:0 0 40px rgba(0,0,0,.6);margin-bottom:1rem" onerror="this.src='https://placehold.co/360x480?text=book+image'">
+      <p style="max-width:640px;text-align:center;color:rgba(245,240,255,.8);line-height:1.7;margin-bottom:1rem">
+        Hier ist das Buch, das ich vorgeschlagen habe. Wenn du möchtest, können wir es gemeinsam lesen und anschließend besprechen, ob wir uns eine gemeinsame Zukunft vorstellen können.
+      </p>
+      <div style="display:flex;gap:12px;"> 
+        <button id="btnReadTogether" class="btn-yes2">Zusammen Lesen</button>
+        <button id="btnBackFromBook" class="btn-no2">Zurück</button>
+      </div>
     </div>
   </div>
 
@@ -254,7 +270,7 @@
 
     document.getElementById('btnYes2').addEventListener('click',()=>{
       window._bdName='aallanazar';
-      window._bdText=`Im Laufe der Geschichte wurden als Geschenk Burgen gebaut oder prachtvolle Gärten angelegt – jeder schenkte das, wozu er in der Lage war.\n\nIch habe dir hier etwas mitgebracht, das meinen momentanen Möglichkeiten entspricht. Ich wünsche dir von Herzen alles Gute zum Geburtstag, viel Glück im Leben und großen beruflichen Erfolg.\n\nIch möchte dir zudem einen Vorschlag machen: ein Buch. Ein sehr bekanntes Buch, das Männer und Frauen vor einer möglichen Heirat gelesen haben sollten. Unser erster Versuch, uns näher kennenzulernen, war leider nicht so erfolgreich, wie erhofft.\n\nIch schlage vor, dass wir nun beide dieses Buch lesen und am Ende gemeinsam die Entscheidung treffen, ob wir eine gemeinsame Zukunft haben können.\n\nAlles Liebe und einen wunderschönen Tag!`;
+      window._bdText=`Im Laufe der Geschichte wurden als Geschenk Burgen gebaut oder prachtvolle Gärten angelegt – jeder schenkte das, wozu er in der Lage war.\n\nIch habe dir hier etwas mitgebracht, das meinen momentanen Möglichkeiten entspricht. Ich wünsche dir von Herzen alles Gute zum Geburtstag, viel Glück im Leben und großen beruflichen Erfolg.\n\nIch möchte dir zudem einen Vorschlag machen: ein Buch. Ein sehr bekanntes Buch, das Männer und Frauen vor einer möglichen Heirat gelesen haben sollten. Unser erster Versuch, uns näher kennenzulernen, war leider nicht so erfolgreich, wie erhofft.\n\nIch schlage vor, dass wir nun beide dieses Buch lesen und am Ende gemeinsam die Entscheidung treffen, ob wir eine gemeinsame Zukunft haben können.\n\nAlles Gute und einen wunderschönen Tag!`;
       showView('trans');
       const ripple=document.getElementById('tRipple');
       const catWrap=document.getElementById('catWrap');
@@ -318,6 +334,16 @@
       if(btnNo2){ btnNo2.style.position='relative'; btnNo2.style.left='auto'; btnNo2.style.top='auto'; btnNo2.style.transform='none'; }
       showView('v1');
     });
+
+    // Book button from v4
+    const btnBook = document.getElementById('btnBook');
+    if(btnBook){ btnBook.addEventListener('click',()=>{ showView('v5'); }); }
+
+    const btnBackFromBook = document.getElementById('btnBackFromBook');
+    if(btnBackFromBook){ btnBackFromBook.addEventListener('click',()=>{ showView('v4'); }); }
+
+    const btnReadTogether = document.getElementById('btnReadTogether');
+    if(btnReadTogether){ btnReadTogether.addEventListener('click',()=>{ alert('Wunderbar — wir können jetzt einen Zeitplan zum gemeinsamen Lesen festlegen.'); }); }
 
     // GitHub button: open link (cursor is none, so use click not hover)
     document.getElementById('btnGithub').addEventListener('click', e => {
