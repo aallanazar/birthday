@@ -81,6 +81,19 @@
     .btn-github:hover{background:rgba(201,165,247,.18);transform:scale(1.05);box-shadow:0 0 48px rgba(201,165,247,.35)}
     .btn-github svg{width:18px;height:18px;fill:currentColor;flex-shrink:0}
   </style>
+  <style>
+    /* Print friendly styles */
+    @media print{
+      body,html{background:#fff;color:#000;cursor:auto;}
+      canvas,#cur,#cur2,.bota,.ff,.cp,.sparkle{display:none !important}
+      .view{position:static;opacity:1 !important;pointer-events:auto}
+      #v1,#v2,#trans,#v3{display:none}
+      #v4,#v5{overflow:visible}
+      .btn-restart,.btn-yes2,.btn-no2,.btn-github,#btnContinue,#btnRestart,#btnBook,#btnPrint,#btnPrintBook{display:none !important}
+      img{box-shadow:none;border-radius:0}
+      .v4-inner{color:#000;background:transparent}
+    }
+  </style>
 </head>
 
 <body>
@@ -184,6 +197,7 @@
 
       <button id="btnRestart" class="btn-restart">Nochmal von vorn ✨</button>
       <button id="btnBook" class="btn-restart" style="margin-left:8px">Zum Buch 📖</button>
+      <button id="btnPrint" class="btn-restart" style="margin-left:8px">Beenden / Drucken 🖨️</button>
       <div class="emoji-row">🎈 ✨ 🌸</div>
     </div>
   </div>
@@ -197,8 +211,9 @@
         Hier ist das Buch, das ich vorgeschlagen habe. Wenn du möchtest, können wir es gemeinsam lesen und anschließend besprechen, ob wir uns eine gemeinsame Zukunft vorstellen können.
       </p>
       <div style="display:flex;gap:12px;"> 
-        <button id="btnReadTogether" class="btn-yes2">Zusammen Lesen</button>
+        <button id="btnReadTogether" class="btn-yes2">Ja, ich lese das Buch</button>
         <button id="btnBackFromBook" class="btn-no2">Zurück</button>
+        <button id="btnPrintBook" class="btn-restart" style="margin-left:8px">Beenden / Drucken 🖨️</button>
       </div>
     </div>
   </div>
@@ -343,7 +358,13 @@
     if(btnBackFromBook){ btnBackFromBook.addEventListener('click',()=>{ showView('v4'); }); }
 
     const btnReadTogether = document.getElementById('btnReadTogether');
-    if(btnReadTogether){ btnReadTogether.addEventListener('click',()=>{ alert('Wunderbar — wir können jetzt einen Zeitplan zum gemeinsamen Lesen festlegen.'); }); }
+    if(btnReadTogether){ btnReadTogether.addEventListener('click',()=>{ showView('v4'); }); }
+
+    const btnPrint = document.getElementById('btnPrint');
+    if(btnPrint){ btnPrint.addEventListener('click',()=>{ window.print(); }); }
+
+    const btnPrintBook = document.getElementById('btnPrintBook');
+    if(btnPrintBook){ btnPrintBook.addEventListener('click',()=>{ window.print(); }); }
 
     // GitHub button: open link (cursor is none, so use click not hover)
     document.getElementById('btnGithub').addEventListener('click', e => {
