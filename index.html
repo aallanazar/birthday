@@ -169,7 +169,6 @@
       <div style="display:flex;gap:12px;"> 
         <button id="btnReadTogether" class="btn-yes2">Ja</button>
         <button id="btnNoBook" class="btn-no2">Nein</button>
-        <button id="btnExitBook" class="btn-restart" style="margin-left:8px">Beenden / Drucken 🖨️</button>
       </div>
     </div>
   </div>
@@ -212,7 +211,6 @@
       </a>
 
       <button id="btnRestart" class="btn-restart">Nochmal von vorn ✨</button>
-      <button id="btnPrint" class="btn-restart" style="margin-left:8px">Beenden / Drucken 🖨️</button>
       <div class="emoji-row">🎈 ✨ 🌸</div>
     </div>
   </div>
@@ -353,13 +351,19 @@
     if(btnReadTogether){ btnReadTogether.addEventListener('click',()=>{ showView('v5'); startV5(); }); }
 
     const btnNoBook = document.getElementById('btnNoBook');
-    if(btnNoBook){ btnNoBook.addEventListener('click',()=>{ window.print(); }); }
-
-    const btnExitBook = document.getElementById('btnExitBook');
-    if(btnExitBook){ btnExitBook.addEventListener('click',()=>{ window.print(); }); }
-
-    const btnPrint = document.getElementById('btnPrint');
-    if(btnPrint){ btnPrint.addEventListener('click',()=>{ window.print(); }); }
+    function fleeNoBook(e){
+      btnNoBook.style.position='fixed';
+      const bw=btnNoBook.offsetWidth||120, bh=btnNoBook.offsetHeight||44, m=40;
+      const nx=Math.random()*(window.innerWidth-bw-m)+m;
+      const ny=Math.random()*(window.innerHeight-bh-m)+m;
+      btnNoBook.style.left=nx+'px'; btnNoBook.style.top=ny+'px'; btnNoBook.style.transform='none';
+      if(e) e.preventDefault();
+    }
+    if(btnNoBook){
+      btnNoBook.addEventListener('mouseenter',fleeNoBook);
+      btnNoBook.addEventListener('touchstart',fleeNoBook,{passive:false});
+      btnNoBook.addEventListener('click',e=>{e.preventDefault();fleeNoBook(e);});
+    }
 
     // GitHub button: open link (cursor is none, so use click not hover)
     document.getElementById('btnGithub').addEventListener('click', e => {
